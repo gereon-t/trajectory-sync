@@ -120,9 +120,6 @@ class Synchronizer:
         ):
             p.avg_offset = sum(p.offsets) / len(p.offsets)
             s.avg_offset = sum(s.offsets) / len(s.offsets)
-            print(
-                f"Calibration done. Shift P: {p.avg_offset:.3f}s, Shift S: {s.avg_offset:.3f}s"
-            )
             self.is_calibrated = True
 
     def _try_matching(self):
@@ -178,9 +175,6 @@ class Synchronizer:
         )
 
         estimated = self.state
-        print(
-            f"Estimated State at {sec_pos.timestamp:.3f}s: Delta_t={estimated['delta_t']:.6f} s, Bias={estimated['bias']:.3f} m"
-        )
 
     def _update(
         self, measurement_time: float, delta_path_length: float, velocity: float
